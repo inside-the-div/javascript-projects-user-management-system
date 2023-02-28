@@ -70,7 +70,7 @@ $(document).ready(function(){
 
     $(document).on("click",".btn-user-edit",function(){
        
-        $("#modalHeading").html("Update User");
+        $("#modalHeading").html("Edit User");
         $("#userMSmodal").fadeIn();
         var userId = ($(this).attr('data-userId'));
         var indexNumber;
