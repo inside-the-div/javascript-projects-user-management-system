@@ -7,19 +7,21 @@ $(document).ready(function(){
     $(document).on("click","#openUserAddModal",OpenUserAddModal);
     $(document).on("click","#closeModal",CloseUserModal);
     
-
-    $(document).on("click","#saveUserMS",function(){
+   //add user
+    $(document).on("click","#btnSaveUserMS",function(){
         var name = $("#name").val();
         var age = $("#age").val();
         var email = $("#email").val();
     
         if(IsValidUserInput("add"))
         {
-            var userId = 1;
+            var userId;
             var userJson;
             if(localStorage.getItem("user_data") == null || JSON.parse(localStorage.getItem("user_data")).users.length == 0)
             {
                 var users = [];
+                userId = 1;
+
                 users.push(         
                     {"id":userId,
                     "name":name,
@@ -48,10 +50,11 @@ $(document).ready(function(){
         }
     });
     
+    //delete user
     $(document).on("click",".btn-user-delete",function(){
         if (confirm("Are you sure! want to delete?") == true) 
         {
-            var userId = ($(this).attr('data-userId'));
+            var userId = $(this).attr('data-userId');
             var indexNumber;
             var userJson = JSON.parse(localStorage.getItem("user_data"));
             for(var i = 0 ;i < userJson.users.length; i++)
@@ -72,7 +75,7 @@ $(document).ready(function(){
        
         $("#modalHeading").html("Edit User");
         $("#userMSmodal").fadeIn();
-        var userId = ($(this).attr('data-userId'));
+        var userId = $(this).attr('data-userId');
         var indexNumber;
         var userJson = JSON.parse(localStorage.getItem("user_data"));
         for(var i = 0 ;i < userJson.users.length; i++)
@@ -88,14 +91,15 @@ $(document).ready(function(){
         $("#age").val(userJson.users[indexNumber].age);
         $("#userId").html(userJson.users[indexNumber].id);
 
-        $("#saveUserMS").hide();  
-        $("#updateUserMS").show();
+        $("#btnSaveUserMS").hide();  
+        $("#btnupdateUserMS").show();
         $("#selectedID").show(); 
 
     });
     
 
-    $(document).on("click","#updateUserMS",function(){
+    //update user
+    $(document).on("click","#btnupdateUserMS",function(){
         
         if(IsValidUserInput("update"))
         {
@@ -135,7 +139,7 @@ $(document).ready(function(){
 
 
 function ShowUserData(){
-    var user_data = JSON.parse(localStorage.getItem("user_data"));
+    var userJson = JSON.parse(localStorage.getItem("user_data"));
     var totalUser = user_data.users.length;
     var usertablerow = "";
     if(localStorage.getItem("user_data") != null)
@@ -144,13 +148,13 @@ function ShowUserData(){
         {
             usertablerow += 
             `<tr>
-                <td>${user_data.users[i].id}</td>
-                <td>${user_data.users[i].name}</td> 
-                <td>${user_data.users[i].email}</td> 
-                <td>${user_data.users[i].age}</td> 
+                <td>${userJson.users[i].id}</td>
+                <td>${userJson.users[i].name}</td> 
+                <td>${userJson.users[i].email}</td> 
+                <td>${userJson.users[i].age}</td> 
                 <td> 
-                    <button data-userId = "${user_data.users[i].id}" class="btn btn-user-delete">Delete</button> 
-                    <button data-userId = "${user_data.users[i].id}" class="btn-user-edit btn">Edit</button> 
+                    <button data-userId = "${userJson.users[i].id}" class="btn btn-user-delete">Delete</button> 
+                    <button data-userId = "${userJson.users[i].id}" class="btn-user-edit btn">Edit</button> 
                 </td> 
             </tr>`;
         }
@@ -263,8 +267,8 @@ function IsValidUserInput(action){
 function OpenUserAddModal(){
     $("#modalHeading").html("Add User");
     $("#userMSmodal").fadeIn();
-    $("#saveUserMS").show();  
-    $("#updateUserMS").hide();
+    $("#btnSaveUserMS").show();  
+    $("#btnupdateUserMS").hide();
 }
 
 function CloseUserModal()

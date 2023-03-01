@@ -34,7 +34,7 @@ body{
     left: 0px;
 }
 
-#updateUserMS ,#selectedID{
+#btnupdateUserMS ,#selectedID{
     display: none;
 }
 .btn{
@@ -130,7 +130,7 @@ body{
     outline: none;
     font-size: 20px;
 }
-#save, #updateUserMS{
+#btnSaveUserMS, #btnupdateUserMS{
     background-color: rgb(0, 128, 0, .8);
     margin: 0;
     margin-top: 20px;
@@ -138,7 +138,7 @@ body{
     font-size: 25px;
     letter-spacing: 1px;
 }
-#modal-save:hover{
+#btnSaveUserMS:hover,#btnupdateUserMS:hover{
     background-color: rgba(0, 128, 0, 1);
 }
 #localStorageEmptyMessage{
@@ -160,7 +160,7 @@ body{
 .body-heading-buttons{
   display: flex;
 }
-.body-heading{
+.project-heading{
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
