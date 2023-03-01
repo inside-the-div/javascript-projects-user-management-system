@@ -71,6 +71,7 @@ $(document).ready(function(){
         } 
     });
 
+    //edit user
     $(document).on("click",".btn-user-edit",function(){
        
         $("#modalHeading").html("Edit User");
