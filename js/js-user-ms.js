@@ -142,12 +142,12 @@ $(document).ready(function(){
 function ShowUserData(){
     var userJson = JSON.parse(localStorage.getItem("user_data"));
     var totalUser = userJson.users.length;
-    var usertablerow = "";
+    var userTableRow = "";
     if(localStorage.getItem("user_data") != null)
     {            
         for(var i = 0; i < totalUser; i++)
         {
-            usertablerow += 
+            userTableRow += 
             `<tr>
                 <td>${userJson.users[i].id}</td>
                 <td>${userJson.users[i].name}</td> 
@@ -160,7 +160,7 @@ function ShowUserData(){
             </tr>`;
         }
         
-        $("#userTableBody").html(usertablerow);
+        $("#userTableBody").html(userTableRow);
         if($("#userTableBody").text() == "")
         {
             $("#localStorageEmptyMessage").show(); 
@@ -177,7 +177,7 @@ function IsValidUserInput(action){
     var name = $("#name").val();
     var age = $("#age").val();
     var givenEmail = $("#email").val();
-    var total_email = 0;
+    var totalEmail = 0;
     var existingUsersArray = [];
 
     if(JSON.parse(localStorage.getItem("user_data")) != null){
@@ -188,7 +188,7 @@ function IsValidUserInput(action){
     {
         if(localStorage.getItem("user_data") == null || existingUsersArray.length == 0)
         {
-            total_email = 0;
+            totalEmail = 0;
         }
         else
         {
@@ -196,7 +196,7 @@ function IsValidUserInput(action){
             {
                 var userEmail = existingUsersArray[i].email;
                 if(userEmail == givenEmail ){
-                    total_email = 1;
+                    totalEmail = 1;
                     break;
                 }
             }
@@ -207,7 +207,7 @@ function IsValidUserInput(action){
         var updateId = Number($("#userId").text());
         if(localStorage.getItem("user_data") == null || existingUsersArray.length == 0)
         {
-            total_email = 0;
+            totalEmail = 0;
         }
         else
         {
@@ -216,7 +216,7 @@ function IsValidUserInput(action){
                 var userEmail = existingUsersArray[i].email;
                 var userId = Number(existingUsersArray[i].id);
                 if(userEmail == givenEmail && userId != updateId){
-                    total_email = 1;
+                    totalEmail = 1;
                     break;
                 }
             }
@@ -239,12 +239,12 @@ function IsValidUserInput(action){
         _cmnShowErrorMessageBottomOfTheInputFiled("email","Enter valid email.");
         return false;   
     }
-    else if(action == "update" && total_email > 0)
+    else if(action == "update" && totalEmail > 0)
     {
         _cmnShowErrorMessageBottomOfTheInputFiled("email","This email already used. Enter valid email.");
         return false; 
     }
-    else if(action == "add" && total_email > 0)
+    else if(action == "add" && totalEmail > 0)
     {
         _cmnShowErrorMessageBottomOfTheInputFiled("email","This email already used. Enter valid email.");
         return false; 
@@ -285,27 +285,3 @@ function ClearUserMSModal(){
     $("#userId").html("");
     _cmnRemoveAllErrorMessage();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
