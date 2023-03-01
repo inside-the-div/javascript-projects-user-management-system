@@ -173,6 +173,7 @@ function ShowUserData(){
 
 function IsValidUserInput(action){
 
+    _cmnRemoveAllErrorMessage();
     var name = $("#name").val();
     var age = $("#age").val();
     var givenEmail = $("#email").val();
@@ -221,8 +222,6 @@ function IsValidUserInput(action){
             }
         }
     }
-
-    _cmnRemoveAllErrorMessage();
 
     if(name == "")
     {
