@@ -160,7 +160,7 @@ body{
 .body-heading-buttons{
   display: flex;
 }
-.project-heading{
+.content-heading{
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;

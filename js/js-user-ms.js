@@ -140,7 +140,7 @@ $(document).ready(function(){
 
 function ShowUserData(){
     var userJson = JSON.parse(localStorage.getItem("user_data"));
-    var totalUser = user_data.users.length;
+    var totalUser = userJson.users.length;
     var usertablerow = "";
     if(localStorage.getItem("user_data") != null)
     {            
