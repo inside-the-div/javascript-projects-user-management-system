@@ -142,9 +142,15 @@ body{
     background-color: rgba(0, 128, 0, 1);
 }
 #localStorageEmptyMessage{
+    display: none;
     text-align: center;
     margin-top: 20px;
     font-size: 25px;
+}
+#searchUserByName{
+    margin: 0 0 0 5px;
+    outline: none;
+    padding: 5px;
 }
 .user-content{
     position: relative;

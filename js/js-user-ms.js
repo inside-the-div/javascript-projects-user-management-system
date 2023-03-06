@@ -133,8 +133,47 @@ $(document).ready(function(){
                 CloseUserModal();
             }
         }
-    }); 
+    });
 
+    $("#searchUserByName").keyup(function(){
+        var searchText = $("#searchUserByName").val();
+        searchText = searchText.replace(/\s{2,}/g, ' ').trim();
+        searchText = searchText.toLowerCase();
+    
+        if(searchText == "")
+        {
+            ShowUserData();
+        }
+        else
+        {
+            var userJson = JSON.parse(localStorage.getItem("user_data"));
+            var totalUser = userJson.users.length;
+            var userTableRow = "";
+            if(userJson != null)
+            {            
+                for(var i = 0; i < totalUser; i++)
+                {
+                    var userName = userJson.users[i].name;
+                    userName = userName.toLowerCase();
+                    if(userName.indexOf(searchText) > -1)
+                    {                     
+                        userTableRow += 
+                        `<tr>
+                            <td>${userJson.users[i].id}</td>
+                            <td>${userJson.users[i].name}</td> 
+                            <td>${userJson.users[i].email}</td> 
+                            <td>${userJson.users[i].age}</td> 
+                            <td> 
+                                <button data-userId = "${userJson.users[i].id}" class="btn btn-user-delete">Delete</button> 
+                                <button data-userId = "${userJson.users[i].id}" class="btn-user-edit btn">Edit</button> 
+                            </td> 
+                        </tr>`;                       
+                    }
+                }
+            }
+            $("#userTableBody").html(userTableRow);
+        }
+    });
 });
 // end jquery
 
@@ -161,14 +200,11 @@ function ShowUserData(){
         }
         
         $("#userTableBody").html(userTableRow);
-        if($("#userTableBody").text() == "")
-        {
-            $("#localStorageEmptyMessage").show(); 
-        }
-        else{
-            $("#localStorageEmptyMessage").hide(); 
-        }
-    }        
+    }
+    else
+    {
+        $("#localStorageEmptyMessage").show();
+    }       
 }
 
 function IsValidUserInput(action){
