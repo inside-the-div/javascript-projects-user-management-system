@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="css/user-ms.css">
     <title>User Management System</title>
 </head>
+
 <body>
     <div class="project-content">
-        <h1 class="project-heading">User Management System | Javascript Local Storage Project</h1>
+        <h1 class="project-heading">Employee Management System | Javascript Local Storage Project</h1>
         <div class="user-content">
             <div class="content-heading">
                 <h2>All Users</h2>
                 <div class="body-heading-buttons">
-                    <button id="openUserAddModal" class="btn">Add</button>
-                    <input id="searchUserByName" type="text" placeholder="Search">
+                    <button id="addBtn" class="btn">Add</button>
+                    <input id="searchEmployee" type="text" placeholder="Search">
                 </div>                   
             </div>
 
@@ -31,26 +32,26 @@
                         <th>Action</th>
                     </tr>
                     </thead>
-                    <tbody id="userTableBody">
+                    <tbody id="employeeTableBody">
                     
                     </tbody>
                 </table>
             </div>
         </div>
-        <p id="localStorageEmptyMessage">Your storage is empty now. Add some data.</p>
+        <p id="noEmployeeFound">No Employee Found.</p>
     </div>
 
-    <div id="userMSmodal">
-        <div class="userMSmodal">
+    <div id="employeeModal">
+        <div class="employeeModal">
             <div class="modal-box">
-                <button id="closeModal">
+                <button id="closeModalBtn">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
                 <h2><span id="modalHeading"></span></h2>
-                <div id="selectedID">
+                <div id="selectedIdDiv">
                     <div class="modal-input-items">
                     <label class="modal-input-label">
-                            ID: <span id="userId"></span>
+                            ID: <span id="employeeID"></span>
                     </label>
                     </div>
                 </div>
@@ -74,8 +75,8 @@
                 </div>
                 
                 <div class="modal-input-items">
-                    <button id="btnSaveUserMS" class="modal-buttons">Save</button>
-                    <button id="btnupdateUserMS" class="modal-buttons">Update</button>
+                    <button id="saveBtn" class="modal-buttons">Save</button>
+                    <button id="updateBtn" class="modal-buttons">Update</button>
                 </div>                    
             </div>
         </div>
@@ -83,6 +84,6 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="js/project-common.js"></script>
-    <script src="js/js-user-ms.js"></script>
+    <script src="js/employee.js"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ body{
     left: 0px;
 }
 
-#btnupdateUserMS ,#selectedID{
+#updateBtn ,#selectedID{
     display: none;
 }
 .btn{
@@ -61,14 +61,14 @@ body{
     transition: .4s;
     background: green;
 }
-#userMSmodal{
+#employeeModal{
     height: 100vh;
     width: 100%;
     display: none;
     position: fixed;
     top: 0;
 }
-.userMSmodal{
+.employeeModal{
     height: 100vh;
     width: 100%;
     display: flex;
@@ -92,7 +92,7 @@ body{
     font-style: italic;
     text-align: center;
 }
-#closeModal{
+#closeModalBtn{
     padding: 12px 15px 0 0;
     border: none;
     background: transparent;
@@ -102,12 +102,12 @@ body{
     right: 0;
 }
 
-#closeModal i{
+#closeModalBtn i{
     cursor: pointer;
     font-size: 25px;
     transition: .2s;
 }
-#closeModal i:hover{    
+#closeModalBtn i:hover{    
     color: red;
 }
 .modal-input-items{
@@ -130,7 +130,7 @@ body{
     outline: none;
     font-size: 20px;
 }
-#btnSaveUserMS, #btnupdateUserMS{
+#saveBtn, #updateBtn{
     background-color: rgb(0, 128, 0, .8);
     margin: 0;
     margin-top: 20px;
@@ -138,16 +138,16 @@ body{
     font-size: 25px;
     letter-spacing: 1px;
 }
-#btnSaveUserMS:hover,#btnupdateUserMS:hover{
+#saveBtn:hover,#updateBtn:hover{
     background-color: rgba(0, 128, 0, 1);
 }
-#localStorageEmptyMessage{
+#noEmployeeFound{
     display: none;
     text-align: center;
     margin-top: 20px;
     font-size: 25px;
 }
-#searchUserByName{
+#searchEmployee{
     margin: 0 0 0 5px;
     outline: none;
     padding: 5px;
@@ -180,21 +180,21 @@ body{
   padding: 5px;
   border: 1px solid black;
 }
-#userTableBody tr td:last-child{
+#employeeTableBody tr td:last-child{
     text-align: center;
 }
-#userTableBody tr td:nth-last-child(2){
+#employeeTableBody tr td:nth-last-child(2){
     text-align: center;
 }
-#userTableBody tr td:first-child{
+#employeeTableBody tr td:first-child{
     text-align: center;
 }
-.btn-user-delete{
+.delete-btn{
     display: inline;
     background-color: rgb(162, 66, 66);
     color: rgb(255, 255, 255);;
 }
-.btn-user-edit{
+.edit-btn{
     display: inline;
     background-color: rgb(44, 87, 172);
     color: rgb(255, 255, 255);;
