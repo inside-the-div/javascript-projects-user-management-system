@@ -256,6 +256,7 @@ function showEmployees(allEmployees){
         })
 
         $("#employeeTableBody").html(EmployeeTableRows);
+        $("#noEmployeeFound").hide();
 
     }else{
         // show not found message
